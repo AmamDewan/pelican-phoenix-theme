@@ -1,0 +1,111 @@
+:root {
+    --black-light: #3c3836;;
+    --black-dark: #32302f;
+    --white: #d4be98;
+    --orange: #c35e0a;
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url('../fonts/Fira_Code/Fira_Code_Light_Nerd_Font_Complete.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url('../fonts/Fira_Code/Fira_Code_Regular_Nerd_Font_Complete.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url('../fonts/Fira_Code/Fira_Code_Medium_Nerd_Font_Complete.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url('../fonts/Fira_Code/Fira_Code_SemiBold_Nerd_Font_Complete.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url('../fonts/Fira_Code/Fira_Code_Bold_Nerd_Font_Complete.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+html {
+    background-color: var(--black-light);
+}
+
+body {
+    font-family: "Fira Code", sans-serif;
+    font-size: 100%;
+    background-color: var(--black-dark);
+    color: var(--white);
+    max-width: 500px;
+    min-width: 400px;
+    min-height: 200px;
+    padding: 6em;
+    margin: 5% auto;
+    border: 2px solid var(--orange);
+    display: block;
+}
+
+a:link {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: var(--orange);
+}
+
+a:visited {
+    color: var(--orange);
+}
+
+h1 a {
+    color: inherit !important;
+}
+
+h2 a {
+    color: inherit !important;
+}
+
+h3 a {
+    color: inherit !important;
+}
+
+h4 a {
+    color: inherit !important;
+}
+
+h5 a {
+    color: inherit !important;
+}
+
+h6 a {
+    color: inherit !important;
+}
+
+#menu li {
+    display: inline;
+}
+
+#post-list {
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+pre {
+    margin: 2em 1em 2em 4em;
+    white-space: pre-wrap;
+}
