@@ -1,41 +1,41 @@
 :root {
-    --black-light: #3c3836;;
+    --black-light: #3c3836;
     --black-dark: #32302f;
     --white: #d4be98;
     --orange: #c35e0a;
 }
 
 @font-face {
-  font-family: "Fira Code";
-  src: url('../fonts/Fira_Code/Fira_Code_Light_Nerd_Font_Complete.ttf') format('truetype');
+    font-family: "Fira Code";
+    src: url("../fonts/Fira_Code/Fira_Code_Light_Nerd_Font_Complete.ttf") format("truetype");
     font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
-  font-family: "Fira Code";
-  src: url('../fonts/Fira_Code/Fira_Code_Regular_Nerd_Font_Complete.ttf') format('truetype');
+    font-family: "Fira Code";
+    src: url("../fonts/Fira_Code/Fira_Code_Regular_Nerd_Font_Complete.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-  font-family: "Fira Code";
-  src: url('../fonts/Fira_Code/Fira_Code_Medium_Nerd_Font_Complete.ttf') format('truetype');
+    font-family: "Fira Code";
+    src: url("../fonts/Fira_Code/Fira_Code_Medium_Nerd_Font_Complete.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
-  font-family: "Fira Code";
-  src: url('../fonts/Fira_Code/Fira_Code_SemiBold_Nerd_Font_Complete.ttf') format('truetype');
+    font-family: "Fira Code";
+    src: url("../fonts/Fira_Code/Fira_Code_SemiBold_Nerd_Font_Complete.ttf") format("truetype");
     font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
-  font-family: "Fira Code";
-  src: url('../fonts/Fira_Code/Fira_Code_Bold_Nerd_Font_Complete.ttf') format('truetype');
+    font-family: "Fira Code";
+    src: url("../fonts/Fira_Code/Fira_Code_Bold_Nerd_Font_Complete.ttf") format("truetype");
     font-weight: bold;
     font-style: normal;
 }
@@ -46,13 +46,13 @@ html {
 
 body {
     font-family: "Fira Code", sans-serif;
-    font-size: 100%;
+    font-size: 1.25rem;
     background-color: var(--black-dark);
     color: var(--white);
-    max-width: 500px;
-    min-width: 400px;
+    max-width: 660px;
+    /* min-width: 400px; */
     min-height: 200px;
-    padding: 6em;
+    padding: 6em 3em;
     margin: 5% auto;
     border: 2px solid var(--orange);
     display: block;
@@ -69,7 +69,7 @@ a:hover {
 }
 
 a:visited {
-    color: var(--orange);
+    color: var(--white);
 }
 
 h1 a {
@@ -105,7 +105,16 @@ h6 a {
     margin-top: 1em;
 }
 
+.entry-content p {
+    letter-spacing: -0.003em;
+    line-height: 1.8rem;
+}
+
 pre {
     margin: 2em 1em 2em 4em;
     white-space: pre-wrap;
+}
+
+.tags a {
+    font-style: italic;
 }
