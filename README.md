@@ -1,23 +1,10 @@
 ### Pelican Phoenix Theme
-
-  _/|       |\_  
- /  |       |  \ 
-|    \     /    |
-|  \ /     \ /  |
-| \  |     |  / |
-| \ _\_/^\_/_ / |
-|    --\//--    |
- \_  \     /  _/ 
-   \__  |  __/   
-      \ _ /      
-     _/   \_     
-    / _/|\_ \    
-     /  |  \     
-      / v \      
+![Screenshot](screenshot.png "Theme Demo")
 
 This theme based on slightly modified gruvbox color scheme
 It supports Google Analytics and has a Jappix widget.
-![Screenshot](screenshot.png "Theme Demo")
+
+
 #### Installation
 Create a directory `themes` inside the root level of your project. Clone the Pelican Phoenix theme inside the `themes` directory that you created.
 
