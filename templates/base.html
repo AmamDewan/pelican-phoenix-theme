@@ -1,48 +1,106 @@
-{% extends "!simple/base.html" %}
-
-{%- block head %}
-{{ super() }}
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+    <script>(function(){var t=localStorage.getItem('bbm-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}());</script>
+    <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Pelican" />
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/rdark.css" />
-	<link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}" />
-        <link href="{{ SITEURL }}/{{ FEED }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed" />
-        {%- if FEED_RSS %}<link href="{{ SITEURL }}/{{ FEED_RSS }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />{% endif -%}
-        <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-        {% if GOOGLE_ANALYTICS %}
-        <script type="text/javascript">
-        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-        </script>
-        <script type="text/javascript">
-        try {
-          var pageTracker = _gat._getTracker("{{ GOOGLE_ANALYTICS }}");
-          pageTracker._trackPageview();
-        } catch(err) {}
-        </script>
-        {% endif %}
-        {% if JABBER_CHATROOM %}
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-        <script type="text/javascript" src="https://static.jappix.com/php/get.php?l=fr&amp;t=js&amp;g=mini.xml"></script>
-        <script type="text/javascript">
-        jQuery(document).ready(function() {
-            MINI_GROUPCHATS = ["{{ JABBER_CHATROOM }}"];
-            MINI_ANIMATE = true;
-            launchMini(false, true, "anonymous.jappix.com");
-        });
-        </script>
-        {% endif %}
-	
-<!-- Using MathJax, with the delimiters $ -->
-<!-- Conflict with pygments for the .mo and .mi -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-  "HTML-CSS": {
-  styles: {
-  ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
-  },
-  tex2jax: {inlineMath: [['$','$'], ['\\\\(','\\\\)']],processEscapes: true}
-  });
-</script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}" />
+    <link href="{{ SITEURL }}/{{ FEED }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed" />
+    {%- if FEED_RSS %}<link href="{{ SITEURL }}/{{ FEED_RSS }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />{% endif -%}
+    <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    {% if GOOGLE_ANALYTICS %}
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+      var pageTracker = _gat._getTracker("{{ GOOGLE_ANALYTICS }}");
+      pageTracker._trackPageview();
+    } catch(err) {}
+    </script>
+    {% endif %}
+    {% if JABBER_CHATROOM %}
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://static.jappix.com/php/get.php?l=fr&amp;t=js&amp;g=mini.xml"></script>
+    <script type="text/javascript">
+    jQuery(document).ready(function() {
+        MINI_GROUPCHATS = ["{{ JABBER_CHATROOM }}"];
+        MINI_ANIMATE = true;
+        launchMini(false, true, "anonymous.jappix.com");
+    });
+    </script>
+    {% endif %}
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      "HTML-CSS": {
+      styles: {
+      ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+      },
+      tex2jax: {inlineMath: [['$','$'], ['\\\\(','\\\\)']],processEscapes: true}
+      });
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
-{% endblock -%}
+
+<body id="index" class="home">
+    <header id="banner" class="body">
+        <h1><a href="{{ SITEURL }}/">{{ SITENAME }}{% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a></h1>
+    </header><!-- /#banner -->
+    <nav id="menu"><ul>
+    {% for title, link in MENUITEMS %}
+        <li><a href="{{ link }}">{{ title }}</a></li>
+    {% endfor %}
+    {% if DISPLAY_PAGES_ON_MENU %}
+      {% for p in pages %}
+        <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+      {% endfor %}
+    {% endif %}
+    {% if DISPLAY_CATEGORIES_ON_MENU %}
+      {% for cat, null in categories %}
+        <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+      {% endfor %}
+    {% endif %}
+    </ul>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle theme">&#x2600;</button>
+    </nav><!-- /#menu -->
+
+    {% block content %}
+    {% endblock %}
+
+    <footer id="contentinfo" class="body">
+        <address id="about" class="vcard body">
+        Proudly powered by <a href="https://getpelican.com/">Pelican</a>,
+        which takes great advantage of <a href="https://www.python.org/">Python</a>.
+        </address><!-- /#about -->
+    </footer><!-- /#contentinfo -->
+
+    <script>
+    (function () {
+      var STORAGE_KEY = 'bbm-theme';
+      var btn = document.getElementById('theme-toggle');
+      var html = document.documentElement;
+
+      var saved = localStorage.getItem(STORAGE_KEY);
+      if (saved === 'light') {
+        btn.innerHTML = '&#x263E;';
+      }
+
+      btn.addEventListener('click', function () {
+        var isLight = html.getAttribute('data-theme') === 'light';
+        if (isLight) {
+          html.removeAttribute('data-theme');
+          btn.innerHTML = '&#x2600;';
+          localStorage.setItem(STORAGE_KEY, 'dark');
+        } else {
+          html.setAttribute('data-theme', 'light');
+          btn.innerHTML = '&#x263E;';
+          localStorage.setItem(STORAGE_KEY, 'light');
+        }
+      });
+    })();
+    </script>
+</body>
+</html>
